@@ -24,6 +24,5 @@ public class StopWatch {
     public double stopWatch(){
         return (endTime - startTime)/1000.0;
     }
-
 }
 
