@@ -13,56 +13,30 @@ public class Main {
         System.out.println("Nhập thông tin học sinh thứ 3: ");
         Student student3 = new Student(sc);
         System.out.println("Tổng kết thông tin học sinh");
-        System.out.println(student1);
-        System.out.println(student2);
-        System.out.println(student3);
+//        System.out.println(student1);
+//        System.out.println(student2);
+//        System.out.println(student3);
 
-        System.out.println("Tổng kết thông tin học sinh theo điểm tb");
-        double ave1 = student1.averageMark();
-        double ave2 = student2.averageMark();
-        double ave3 = student3.averageMark();
-        if (ave1 > ave2 && ave1 > ave3){
-            if (ave2 > ave3){
-                System.out.println(student1);
-                System.out.println(student2);
-                System.out.println(student3);
-            } else {
-                System.out.println(student1);
-                System.out.println(student3);
-                System.out.println(student2);
-            }
-        } else if (ave2 > ave3){
-            if (ave1 > ave3){
-                System.out.println(student2);
-                System.out.println(student1);
-                System.out.println(student3);
-            } else {
-                System.out.println(student2);
-                System.out.println(student3);
-                System.out.println(student1);
-            }
-        } else {
-            if (ave1 > ave2){
-                System.out.println(student3);
-                System.out.println(student1);
-                System.out.println(student2);
-            } else {
-                System.out.println(student3);
-                System.out.println(student2);
-                System.out.println(student1);
+        Student[] student = new Student[3];  // Mark this point!!!
+        student[0] = student1;
+        student[1] = student2;
+        student[2] = student3;
+
+        for (int i = 0; i < student.length; i++) {
+            System.out.println(student[i].toString());
+        }
+        for (int i = 0; i < student.length; i++) {
+            for (int j = 0; j < student.length; j++) {
+                if (student[i].averageMark() > student[j].averageMark()) {
+                    Student temp = student[i];
+                    student[i] = student[j];
+                    student[j] = temp;
+                }
             }
         }
-        Student student4 = new Student("Hào",19,"Male","Hà Lội");
-        System.out.println(" Nhập điểm Toán cho student4: ");
-        double student4Math = sc.nextDouble();
-        System.out.println(" Nhập điểm Anh cho student4: ");
-        double student4Lite = sc.nextDouble();
-        System.out.println(" Nhập điểm Văn cho student4: ");
-        double student4Eng = sc.nextDouble();
-        student4.setMath(student4Math);
-        student4.setEnglish(student4Eng);
-        student4.setLiterature(student4Lite);
-
-        System.out.println(student4);
+        System.out.println("Sắp xếp theo điểm trung bình: ");
+        for (int i = 0; i < student.length; i++) {
+            System.out.println(student[i].toString());
+        }
     }
 }

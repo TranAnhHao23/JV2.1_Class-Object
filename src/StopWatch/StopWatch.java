@@ -1,7 +1,7 @@
 package StopWatch;
 
 public class StopWatch {
-    long startTime, endTime;
+    private long startTime, endTime;
 
     public StopWatch() {
 
@@ -22,7 +22,7 @@ public class StopWatch {
     }
 
     public double stopWatch(){
-        return (endTime - startTime)/1000.0;
+        return (endTime - startTime)/2000.0;
     }
 }
 
